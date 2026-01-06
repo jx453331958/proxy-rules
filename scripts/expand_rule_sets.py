@@ -409,6 +409,58 @@ def process_list_file(input_file, output_file):
         return False
 
 
+def git_pull_rebase(project_root):
+    """
+    在执行脚本前先执行 git pull --rebase 同步代码
+    
+    Args:
+        project_root: 项目根目录路径
+        
+    Returns:
+        bool: 执行成功返回 True，失败返回 False
+    """
+    log_and_print("\n" + "=" * 60)
+    log_and_print("正在同步代码仓库 (git pull --rebase)...")
+    log_and_print("=" * 60)
+    
+    try:
+        # 执行 git pull --rebase
+        result = subprocess.run(
+            ["git", "pull", "--rebase"],
+            cwd=str(project_root),
+            capture_output=True,
+            text=True,
+            timeout=60  # 60秒超时
+        )
+        
+        # 输出 git 命令的输出
+        if result.stdout:
+            log_and_print("\nGit 输出:")
+            log_and_print(result.stdout)
+        
+        if result.stderr:
+            log_and_print("\nGit 信息:")
+            log_and_print(result.stderr, level='warning')
+        
+        if result.returncode == 0:
+            log_and_print("✓ 代码仓库同步成功")
+            return True
+        else:
+            log_and_print(f"✗ Git pull rebase 失败 (返回码: {result.returncode})", level='error')
+            log_and_print("提示: 请检查是否有未提交的更改或冲突", level='warning')
+            return False
+    
+    except subprocess.TimeoutExpired:
+        log_and_print("✗ Git pull rebase 执行超时", level='error')
+        return False
+    except FileNotFoundError:
+        log_and_print("✗ Git 命令未找到，请确保已安装 Git", level='error')
+        return False
+    except Exception as e:
+        log_and_print(f"✗ 执行 git pull rebase 时出错: {e}", level='error')
+        return False
+
+
 def main():
     # 获取脚本所在目录的父目录（项目根目录）
     script_dir = Path(__file__).parent
@@ -429,6 +481,11 @@ def main():
     log_and_print(f"输出目录: {output_dir}")
     log_and_print(f"日志文件: {log_file}")
     log_and_print("=" * 60)
+    
+    # 先执行 git pull --rebase 同步代码
+    if not git_pull_rebase(project_root):
+        log_and_print("\n警告: Git 同步失败，但将继续执行脚本...", level='warning')
+        log_and_print("建议: 请先手动解决 Git 问题后再运行脚本", level='warning')
     
     # 清空 output 目录
     if output_dir.exists():
