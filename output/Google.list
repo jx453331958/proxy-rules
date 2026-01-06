@@ -1,5 +1,14 @@
 # Name: Google
-# Updated: 2026-01-06 20:00:04
+# Updated: 2026-01-06 20:03:22
+#
+# Source RULE-SETs:
+#   1. https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Gemini/Gemini.list
+#      Downloaded: 13 rules (Source Total: 13)
+#   2. https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Google/Google.list
+#      Downloaded: 710 rules (Source Total: 710)
+#   3. https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/YouTube/YouTube.list
+#      Downloaded: 190 rules (Source Total: 190)
+#
 # DOMAIN: 4
 # DOMAIN-KEYWORD: 9
 # DOMAIN-SUFFIX: 877

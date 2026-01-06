@@ -1,5 +1,24 @@
 # Name: GamingPlatforms
-# Updated: 2026-01-06 20:00:03
+# Updated: 2026-01-06 20:03:22
+#
+# Source RULE-SETs:
+#   1. https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Steam/Steam.list
+#      Downloaded: 54 rules (Source Total: 54)
+#   2. https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Epic/Epic.list
+#      Downloaded: 15 rules (Source Total: 15)
+#   3. https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Sony/Sony.list
+#      Downloaded: 116 rules (Source Total: 116)
+#   4. https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Xbox/Xbox.list
+#      Downloaded: 42 rules (Source Total: 42)
+#   5. https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Ubisoft/Ubisoft.list
+#      Downloaded: 1 rules (Source Total: 1)
+#   6. https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/PlayStation/PlayStation.list
+#      Downloaded: 4 rules (Source Total: 4)
+#   7. https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/EA/EA.list
+#      Downloaded: 165 rules (Source Total: 165)
+#   8. https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Nintendo/Nintendo.list
+#      Downloaded: 127 rules (Source Total: 127)
+#
 # DOMAIN: 8
 # DOMAIN-KEYWORD: 3
 # DOMAIN-SUFFIX: 512

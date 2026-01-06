@@ -1,5 +1,18 @@
 # Name: CN
-# Updated: 2026-01-06 20:00:01
+# Updated: 2026-01-06 20:03:20
+#
+# Source RULE-SETs:
+#   1. https://ruleset.skk.moe/List/ip/china_ip.conf
+#      Downloaded: 3838 rules
+#   2. https://ruleset.skk.moe/List/ip/domestic.conf
+#      Downloaded: 3 rules
+#   3. https://ruleset.skk.moe/List/non_ip/domestic.conf
+#      Downloaded: 838 rules
+#   4. https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/China/China_All.list
+#      Downloaded: 3759 rules (Source Total: 3759)
+#   5. https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/SteamCN/SteamCN.list
+#      Downloaded: 17 rules (Source Total: 17)
+#
 # DOMAIN: 56
 # DOMAIN-KEYWORD: 9
 # DOMAIN-SUFFIX: 4496

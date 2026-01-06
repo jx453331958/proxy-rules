@@ -37,7 +37,7 @@ def get_rule_statistics(rules):
     return stats
 
 
-def format_header_comment(filename, stats, total):
+def format_header_comment(filename, stats, total, rule_set_info=None):
     """
     格式化文件头部注释
     
@@ -45,6 +45,7 @@ def format_header_comment(filename, stats, total):
         filename: 文件名
         stats: 规则统计字典
         total: 总规则数
+        rule_set_info: RULE-SET 来源信息列表
         
     Returns:
         str: 格式化的头部注释
@@ -56,6 +57,22 @@ def format_header_comment(filename, stats, total):
     lines = []
     lines.append(f"# Name: {filename}")
     lines.append(f"# Updated: {now}")
+    
+    # 如果有 RULE-SET 来源信息，添加到头部
+    if rule_set_info:
+        lines.append("#")
+        lines.append("# Source RULE-SETs:")
+        for idx, info in enumerate(rule_set_info, 1):
+            url = info['url']
+            count = info['count']
+            original_total = info['original_total']
+            if original_total > 0:
+                lines.append(f"#   {idx}. {url}")
+                lines.append(f"#      Downloaded: {count} rules (Source Total: {original_total})")
+            else:
+                lines.append(f"#   {idx}. {url}")
+                lines.append(f"#      Downloaded: {count} rules")
+        lines.append("#")
     
     # 按照特定顺序输出统计信息
     order = [
@@ -91,13 +108,13 @@ def format_header_comment(filename, stats, total):
 
 def download_rule_set(url):
     """
-    下载 RULE-SET URL 指向的规则文件
+    下载 RULE-SET URL 指向的规则文件，并提取统计信息
     
     Args:
         url: RULE-SET 的 URL
         
     Returns:
-        list: 规则列表
+        tuple: (规则列表, 原始文件的 total 数量)
     """
     try:
         print(f"  正在下载: {url}")
@@ -105,19 +122,30 @@ def download_rule_set(url):
         response.raise_for_status()
         
         rules = []
+        original_total = 0
+        
         for line in response.text.splitlines():
             line = line.strip()
+            # 提取注释中的 Total 字段
+            if line.startswith('#') and 'Total:' in line or line.startswith('#') and 'TOTAL:' in line:
+                try:
+                    # 支持 "# Total: 123" 或 "# TOTAL: 123" 格式
+                    parts = line.split(':')
+                    if len(parts) >= 2:
+                        original_total = int(parts[-1].strip())
+                except:
+                    pass
             # 跳过空行和注释
             if not line or line.startswith('#'):
                 continue
             rules.append(line)
         
-        print(f"  ✓ 成功下载 {len(rules)} 条规则")
-        return rules
+        print(f"  ✓ 成功下载 {len(rules)} 条规则" + (f" (原始标注: {original_total})" if original_total > 0 else ""))
+        return rules, original_total
     
     except Exception as e:
         print(f"  ✗ 下载失败: {e}")
-        return []
+        return [], 0
 
 
 def process_list_file(input_file, output_file):
@@ -133,6 +161,7 @@ def process_list_file(input_file, output_file):
     
     all_rules = []
     rule_set_count = 0
+    rule_set_info = []  # 存储 RULE-SET 的详细信息
     
     try:
         with open(input_file, 'r', encoding='utf-8') as f:
@@ -153,10 +182,16 @@ def process_list_file(input_file, output_file):
                         print(f"\n第 {line_num} 行: 找到 RULE-SET")
                         
                         # 下载并展开规则
-                        downloaded_rules = download_rule_set(url)
+                        downloaded_rules, original_total = download_rule_set(url)
                         if downloaded_rules:
                             all_rules.extend(downloaded_rules)
                             rule_set_count += 1
+                            # 记录 RULE-SET 信息
+                            rule_set_info.append({
+                                'url': url,
+                                'count': len(downloaded_rules),
+                                'original_total': original_total
+                            })
                 else:
                     # 非 RULE-SET 规则，直接添加（但去掉策略参数）
                     # 处理各种规则类型，保留规则本身但去掉策略
@@ -197,8 +232,8 @@ def process_list_file(input_file, output_file):
         stats = get_rule_statistics(all_rules)
         total = len(all_rules)
         
-        # 生成头部注释
-        header = format_header_comment(output_file.stem, stats, total)
+        # 生成头部注释（包含 RULE-SET 来源信息）
+        header = format_header_comment(output_file.stem, stats, total, rule_set_info if rule_set_info else None)
         
         with open(output_file, 'w', encoding='utf-8') as f:
             # 写入格式化的头部注释
@@ -232,6 +267,16 @@ def main():
     # 定义输入输出目录
     custom_dir = project_root / "custom"
     output_dir = project_root / "output"
+    
+    # 清空 output 目录
+    if output_dir.exists():
+        import shutil
+        print("正在清空 output 目录...")
+        shutil.rmtree(output_dir)
+        print("✓ output 目录已清空")
+    
+    # 重新创建 output 目录
+    output_dir.mkdir(parents=True, exist_ok=True)
     
     print("=" * 60)
     print("RULE-SET 展开脚本")

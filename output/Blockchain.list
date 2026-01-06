@@ -1,5 +1,10 @@
 # Name: Blockchain
-# Updated: 2026-01-06 20:00:00
+# Updated: 2026-01-06 20:03:18
+#
+# Source RULE-SETs:
+#   1. https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Binance/Binance.list
+#      Downloaded: 12 rules (Source Total: 12)
+#
 # DOMAIN-KEYWORD: 2
 # DOMAIN-SUFFIX: 13
 # Total: 15

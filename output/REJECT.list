@@ -1,5 +1,10 @@
 # Name: REJECT
-# Updated: 2026-01-06 20:00:06
+# Updated: 2026-01-06 20:03:24
+#
+# Source RULE-SETs:
+#   1. https://ruleset.skk.moe/List/non_ip/reject.conf
+#      Downloaded: 354 rules
+#
 # DOMAIN: 70
 # DOMAIN-KEYWORD: 142
 # DOMAIN-SUFFIX: 89
