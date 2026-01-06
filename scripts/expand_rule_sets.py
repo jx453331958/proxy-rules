@@ -106,6 +106,35 @@ def format_header_comment(filename, stats, total, rule_set_info=None):
     return '\n'.join(lines)
 
 
+
+
+def add_no_resolve(rule):
+    """
+    为需要的规则类型添加 no-resolve 参数
+    
+    Args:
+        rule: 规则字符串
+        
+    Returns:
+        str: 处理后的规则
+    """
+    if not rule or not ',' in rule:
+        return rule
+    
+    parts = rule.split(',')
+    rule_type = parts[0].strip()
+    
+    # 需要添加 no-resolve 的规则类型
+    no_resolve_types = ['IP-CIDR', 'IP-CIDR6', 'GEOIP', 'IP-ASN']
+    
+    if rule_type in no_resolve_types:
+        # 检查是否已经有 no-resolve 参数
+        if 'no-resolve' not in rule.lower():
+            return f"{rule},no-resolve"
+    
+    return rule
+
+
 def download_rule_set(url):
     """
     下载 RULE-SET URL 指向的规则文件，并提取统计信息
@@ -138,6 +167,9 @@ def download_rule_set(url):
             # 跳过空行和注释
             if not line or line.startswith('#'):
                 continue
+            
+            # 为 IP 相关规则添加 no-resolve 参数
+            line = add_no_resolve(line)
             rules.append(line)
         
         print(f"  ✓ 成功下载 {len(rules)} 条规则" + (f" (原始标注: {original_total})" if original_total > 0 else ""))
@@ -216,6 +248,8 @@ def process_list_file(input_file, output_file):
                             # 其他规则类型，保持原样
                             processed_rule = original_line
                         
+                        # 为 IP 相关规则添加 no-resolve
+                        processed_rule = add_no_resolve(processed_rule)
                         all_rules.append(processed_rule)
                         print(f"第 {line_num} 行: 添加 {rule_type} 规则")
     
