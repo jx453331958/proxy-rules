@@ -7,6 +7,7 @@
 import os
 import re
 import sys
+import subprocess
 import requests
 import logging
 from pathlib import Path
@@ -405,6 +406,43 @@ def main():
     log_and_print(f"完成! 成功处理 {success_count}/{len(list_files)} 个文件")
     log_and_print("=" * 60)
     log_and_print(f"\n日志已保存到: {log_file}")
+    
+    # 自动执行 git_auto_push.sh 脚本
+    git_push_script = script_dir / "git_auto_push.sh"
+    if git_push_script.exists():
+        log_and_print("\n" + "=" * 60)
+        log_and_print("正在执行 Git 自动推送脚本...")
+        log_and_print("=" * 60)
+        try:
+            # 执行 shell 脚本
+            result = subprocess.run(
+                [str(git_push_script)],
+                cwd=str(project_root),
+                capture_output=True,
+                text=True,
+                timeout=300  # 5分钟超时
+            )
+            
+            # 输出脚本执行结果
+            if result.stdout:
+                log_and_print("\n脚本输出:")
+                log_and_print(result.stdout)
+            
+            if result.stderr:
+                log_and_print("\n脚本错误输出:")
+                log_and_print(result.stderr, level='warning')
+            
+            if result.returncode == 0:
+                log_and_print("\n✓ Git 自动推送脚本执行成功")
+            else:
+                log_and_print(f"\n✗ Git 自动推送脚本执行失败 (返回码: {result.returncode})", level='error')
+        
+        except subprocess.TimeoutExpired:
+            log_and_print("\n✗ Git 自动推送脚本执行超时", level='error')
+        except Exception as e:
+            log_and_print(f"\n✗ 执行 Git 自动推送脚本时出错: {e}", level='error')
+    else:
+        log_and_print(f"\n警告: Git 自动推送脚本未找到: {git_push_script}", level='warning')
 
 
 if __name__ == "__main__":
