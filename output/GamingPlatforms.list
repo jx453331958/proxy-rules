@@ -1,6 +1,10 @@
-# 此文件由脚本自动生成，展开自: GamingPlatforms.list
-# 共展开 8 个 RULE-SET
-# 总规则数: 524
+# Name: GamingPlatforms
+# Updated: 2026-01-06 20:00:03
+# DOMAIN: 8
+# DOMAIN-KEYWORD: 3
+# DOMAIN-SUFFIX: 512
+# IP-CIDR: 1
+# Total: 524
 
 DOMAIN-SUFFIX,cdn-ali.content.steamchina.com
 DOMAIN-SUFFIX,cdn-qc.content.steamchina.com

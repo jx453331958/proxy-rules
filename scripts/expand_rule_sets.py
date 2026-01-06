@@ -9,6 +9,84 @@ import re
 import requests
 from pathlib import Path
 from urllib.parse import urlparse
+from datetime import datetime
+from collections import defaultdict
+
+
+def get_rule_statistics(rules):
+    """
+    统计各种规则类型的数量
+    
+    Args:
+        rules: 规则列表
+        
+    Returns:
+        dict: 各种规则类型的统计
+    """
+    stats = defaultdict(int)
+    
+    for rule in rules:
+        # 提取规则类型（第一个逗号之前的部分）
+        if ',' in rule:
+            rule_type = rule.split(',')[0].strip()
+            stats[rule_type] += 1
+        elif rule.strip():
+            # 处理没有逗号的特殊规则
+            stats['OTHER'] += 1
+    
+    return stats
+
+
+def format_header_comment(filename, stats, total):
+    """
+    格式化文件头部注释
+    
+    Args:
+        filename: 文件名
+        stats: 规则统计字典
+        total: 总规则数
+        
+    Returns:
+        str: 格式化的头部注释
+    """
+    # 获取当前时间（东八区）
+    now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    
+    # 构建注释
+    lines = []
+    lines.append(f"# Name: {filename}")
+    lines.append(f"# Updated: {now}")
+    
+    # 按照特定顺序输出统计信息
+    order = [
+        'DOMAIN',
+        'DOMAIN-KEYWORD', 
+        'DOMAIN-SUFFIX',
+        'IP-CIDR',
+        'IP-CIDR6',
+        'PROCESS-NAME',
+        'USER-AGENT',
+        'GEOIP',
+        'DOMAIN-SET',
+        'URL-REGEX',
+        'AND',
+        'OR',
+        'NOT'
+    ]
+    
+    # 先输出预定义顺序的规则类型
+    for rule_type in order:
+        if rule_type in stats:
+            lines.append(f"# {rule_type}: {stats[rule_type]}")
+    
+    # 再输出其他未在预定义列表中的规则类型（按字母顺序）
+    other_types = sorted([k for k in stats.keys() if k not in order])
+    for rule_type in other_types:
+        lines.append(f"# {rule_type}: {stats[rule_type]}")
+    
+    lines.append(f"# Total: {total}")
+    
+    return '\n'.join(lines)
 
 
 def download_rule_set(url):
@@ -115,11 +193,16 @@ def process_list_file(input_file, output_file):
         # 确保输出目录存在
         output_file.parent.mkdir(parents=True, exist_ok=True)
         
+        # 统计规则类型
+        stats = get_rule_statistics(all_rules)
+        total = len(all_rules)
+        
+        # 生成头部注释
+        header = format_header_comment(output_file.stem, stats, total)
+        
         with open(output_file, 'w', encoding='utf-8') as f:
-            # 写入文件头注释
-            f.write(f"# 此文件由脚本自动生成，展开自: {input_file.name}\n")
-            f.write(f"# 共展开 {rule_set_count} 个 RULE-SET\n")
-            f.write(f"# 总规则数: {len(all_rules)}\n\n")
+            # 写入格式化的头部注释
+            f.write(header + '\n\n')
             
             # 写入所有规则
             for rule in all_rules:
@@ -127,7 +210,13 @@ def process_list_file(input_file, output_file):
         
         print(f"\n✓ 成功生成: {output_file}")
         print(f"  - 展开了 {rule_set_count} 个 RULE-SET")
-        print(f"  - 总共 {len(all_rules)} 条规则")
+        print(f"  - 总共 {total} 条规则")
+        
+        # 打印规则类型统计
+        print(f"  - 规则类型统计:")
+        for rule_type, count in sorted(stats.items()):
+            print(f"    * {rule_type}: {count}")
+        
         return True
     
     except Exception as e:

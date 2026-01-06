@@ -1,6 +1,14 @@
-# 此文件由脚本自动生成，展开自: REJECT.list
-# 共展开 1 个 RULE-SET
-# 总规则数: 355
+# Name: REJECT
+# Updated: 2026-01-06 20:00:06
+# DOMAIN: 70
+# DOMAIN-KEYWORD: 142
+# DOMAIN-SUFFIX: 89
+# IP-CIDR: 31
+# IP-CIDR6: 4
+# DOMAIN-SET: 1
+# URL-REGEX: 3
+# DOMAIN-WILDCARD: 15
+# Total: 355
 
 DOMAIN,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe
 DOMAIN-SUFFIX,data

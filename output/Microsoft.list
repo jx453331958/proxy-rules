@@ -1,6 +1,11 @@
-# 此文件由脚本自动生成，展开自: Microsoft.list
-# 共展开 3 个 RULE-SET
-# 总规则数: 724
+# Name: Microsoft
+# Updated: 2026-01-06 20:00:05
+# DOMAIN: 1
+# DOMAIN-KEYWORD: 8
+# DOMAIN-SUFFIX: 706
+# PROCESS-NAME: 4
+# USER-AGENT: 5
+# Total: 724
 
 DOMAIN,vsmarketplacebadge.apphb.com
 DOMAIN-SUFFIX,1drv.ms

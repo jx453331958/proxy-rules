@@ -1,6 +1,13 @@
-# 此文件由脚本自动生成，展开自: Google.list
-# 共展开 3 个 RULE-SET
-# 总规则数: 913
+# Name: Google
+# Updated: 2026-01-06 20:00:04
+# DOMAIN: 4
+# DOMAIN-KEYWORD: 9
+# DOMAIN-SUFFIX: 877
+# IP-CIDR: 6
+# IP-CIDR6: 2
+# PROCESS-NAME: 5
+# USER-AGENT: 10
+# Total: 913
 
 DOMAIN,ai.google.dev
 DOMAIN,alkalimakersuite-pa.clients6.google.com
