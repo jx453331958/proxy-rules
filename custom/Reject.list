@@ -1,2 +1,1 @@
 RULE-SET,https://ruleset.skk.moe/List/non_ip/reject.conf,extended-matching,no-resolve
-DOMAIN-SET,https://ruleset.skk.moe/List/domainset/reject.conf
