@@ -192,18 +192,50 @@ def add_no_resolve(rule):
     return rule
 
 
-def download_rule_set(url):
+def convert_to_domain_rule(line, rule_type="DOMAIN-SET"):
     """
-    下载 RULE-SET URL 指向的规则文件，并提取统计信息
+    将 DOMAIN-SET 等域名集合文件中的规则转换为标准的 DOMAIN 类相关规则
     
     Args:
-        url: RULE-SET 的 URL
+        line: 原始规则行
+        rule_type: 规则集类型 (DOMAIN-SET, RULE-SET 等)
+        
+    Returns:
+        str: 转换后的规则，如果不是域名则返回原规则
+    """
+    line = line.strip()
+    
+    # 如果是 DOMAIN-SET，需要将纯域名转换为 DOMAIN-SUFFIX 规则
+    if rule_type == "DOMAIN-SET":
+        # 跳过空行和注释
+        if not line or line.startswith('#'):
+            return None
+        
+        # 如果已经是完整的规则格式（包含逗号），直接返回
+        if ',' in line:
+            return line
+        
+        # 否则，这是一个纯域名，转换为 DOMAIN-SUFFIX 格式
+        # DOMAIN-SET 文件通常只包含域名列表
+        return f"DOMAIN-SUFFIX,{line}"
+    
+    # 其他类型的规则集，保持原样
+    return line
+
+
+def download_remote_rules(url, rule_type="RULE-SET"):
+    """
+    下载远程规则文件（RULE-SET 或 DOMAIN-SET），并提取统计信息
+    
+    Args:
+        url: 远程规则文件的 URL
+        rule_type: 规则类型 (RULE-SET 或 DOMAIN-SET)
         
     Returns:
         tuple: (规则列表, 原始文件的 total 数量)
     """
     try:
-        log_and_print(f"  正在下载: {url}")
+        log_and_print(f"  正在下载 {rule_type}: {url}")
         response = requests.get(url, timeout=30)
         response.raise_for_status()
         
@@ -225,9 +257,15 @@ def download_rule_set(url):
             if not line or line.startswith('#'):
                 continue
             
-            # 为 IP 相关规则添加 no-resolve 参数
-            line = add_no_resolve(line)
-            rules.append(line)
+            # 如果是 DOMAIN-SET 类型，进行特殊处理
+            if rule_type == "DOMAIN-SET":
+                converted_line = convert_to_domain_rule(line, rule_type)
+                if converted_line:
+                    rules.append(converted_line)
+            else:
+                # 为 IP 相关规则添加 no-resolve 参数
+                line = add_no_resolve(line)
+                rules.append(line)
         
         log_and_print(f"  ✓ 成功下载 {len(rules)} 条规则" + (f" (原始标注: {original_total})" if original_total > 0 else ""))
         return rules, original_total
@@ -250,6 +288,7 @@ def process_list_file(input_file, output_file):
     
     all_rules = []
     rule_set_count = 0
+    domain_set_count = 0
     rule_set_info = []  # 存储 RULE-SET 的详细信息
     
     try:
@@ -261,7 +300,7 @@ def process_list_file(input_file, output_file):
                 if not original_line or original_line.startswith('#'):
                     continue
                 
-                # 检查是否是 RULE-SET 规则
+                # 检查是否是 RULE-SET 或 DOMAIN-SET 等规则
                 if original_line.startswith('RULE-SET,'):
                     # 解析 RULE-SET 规则
                     # 格式: RULE-SET,<URL>,<策略>[,<额外参数>]
@@ -271,11 +310,30 @@ def process_list_file(input_file, output_file):
                         log_and_print(f"\n第 {line_num} 行: 找到 RULE-SET")
                         
                         # 下载并展开规则
-                        downloaded_rules, original_total = download_rule_set(url)
+                        downloaded_rules, original_total = download_remote_rules(url, "RULE-SET")
                         if downloaded_rules:
                             all_rules.extend(downloaded_rules)
                             rule_set_count += 1
                             # 记录 RULE-SET 信息
+                            rule_set_info.append({
+                                'url': url,
+                                'count': len(downloaded_rules),
+                                'original_total': original_total
+                            })
+                elif original_line.startswith('DOMAIN-SET,'):
+                    # 解析 DOMAIN-SET 规则
+                    # 格式: DOMAIN-SET,<URL>[,<策略>]
+                    parts = original_line.split(',')
+                    if len(parts) >= 2:
+                        url = parts[1]
+                        log_and_print(f"\n第 {line_num} 行: 找到 DOMAIN-SET")
+                        
+                        # 下载并展开规则
+                        downloaded_rules, original_total = download_remote_rules(url, "DOMAIN-SET")
+                        if downloaded_rules:
+                            all_rules.extend(downloaded_rules)
+                            domain_set_count += 1
+                            # 记录 DOMAIN-SET 信息
                             rule_set_info.append({
                                 'url': url,
                                 'count': len(downloaded_rules),
@@ -336,6 +394,7 @@ def process_list_file(input_file, output_file):
         
         log_and_print(f"\n✓ 成功生成: {output_file}")
         log_and_print(f"  - 展开了 {rule_set_count} 个 RULE-SET")
+        log_and_print(f"  - 展开了 {domain_set_count} 个 DOMAIN-SET")
         log_and_print(f"  - 总共 {total} 条规则")
         
         # 打印规则类型统计
