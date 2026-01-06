@@ -6,11 +6,67 @@
 
 import os
 import re
+import sys
 import requests
+import logging
 from pathlib import Path
 from urllib.parse import urlparse
 from datetime import datetime
 from collections import defaultdict
+
+
+def setup_logging(log_dir):
+    """
+    配置日志系统
+    
+    Args:
+        log_dir: 日志目录路径
+        
+    Returns:
+        str: 日志文件路径
+    """
+    # 创建日志目录
+    log_dir = Path(log_dir)
+    log_dir.mkdir(parents=True, exist_ok=True)
+    
+    # 生成带时间戳的日志文件名
+    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    log_file = log_dir / f"expand_rules_{timestamp}.log"
+    
+    # 配置日志格式
+    log_format = '%(asctime)s - %(levelname)s - %(message)s'
+    date_format = '%Y-%m-%d %H:%M:%S'
+    
+    # 配置根日志记录器
+    logging.basicConfig(
+        level=logging.INFO,
+        format=log_format,
+        datefmt=date_format,
+        handlers=[
+            logging.FileHandler(log_file, encoding='utf-8'),
+            logging.StreamHandler(sys.stdout)
+        ]
+    )
+    
+    return str(log_file)
+
+
+def log_and_print(message, level='info'):
+    """
+    同时打印到控制台和记录到日志
+    
+    Args:
+        message: 消息内容
+        level: 日志级别 (info, warning, error)
+    """
+    if level == 'info':
+        logging.info(message)
+    elif level == 'warning':
+        logging.warning(message)
+    elif level == 'error':
+        logging.error(message)
+    else:
+        logging.info(message)
 
 
 def get_rule_statistics(rules):
@@ -146,7 +202,7 @@ def download_rule_set(url):
         tuple: (规则列表, 原始文件的 total 数量)
     """
     try:
-        print(f"  正在下载: {url}")
+        log_and_print(f"  正在下载: {url}")
         response = requests.get(url, timeout=30)
         response.raise_for_status()
         
@@ -172,11 +228,11 @@ def download_rule_set(url):
             line = add_no_resolve(line)
             rules.append(line)
         
-        print(f"  ✓ 成功下载 {len(rules)} 条规则" + (f" (原始标注: {original_total})" if original_total > 0 else ""))
+        log_and_print(f"  ✓ 成功下载 {len(rules)} 条规则" + (f" (原始标注: {original_total})" if original_total > 0 else ""))
         return rules, original_total
     
     except Exception as e:
-        print(f"  ✗ 下载失败: {e}")
+        log_and_print(f"  ✗ 下载失败: {e}", level='error')
         return [], 0
 
 
@@ -188,8 +244,8 @@ def process_list_file(input_file, output_file):
         input_file: 输入文件路径
         output_file: 输出文件路径
     """
-    print(f"\n处理文件: {input_file.name}")
-    print("=" * 60)
+    log_and_print(f"\n处理文件: {input_file.name}")
+    log_and_print("=" * 60)
     
     all_rules = []
     rule_set_count = 0
@@ -211,7 +267,7 @@ def process_list_file(input_file, output_file):
                     parts = original_line.split(',')
                     if len(parts) >= 2:
                         url = parts[1]
-                        print(f"\n第 {line_num} 行: 找到 RULE-SET")
+                        log_and_print(f"\n第 {line_num} 行: 找到 RULE-SET")
                         
                         # 下载并展开规则
                         downloaded_rules, original_total = download_rule_set(url)
@@ -251,10 +307,10 @@ def process_list_file(input_file, output_file):
                         # 为 IP 相关规则添加 no-resolve
                         processed_rule = add_no_resolve(processed_rule)
                         all_rules.append(processed_rule)
-                        print(f"第 {line_num} 行: 添加 {rule_type} 规则")
+                        log_and_print(f"第 {line_num} 行: 添加 {rule_type} 规则")
     
     except Exception as e:
-        print(f"错误: 读取文件时出错: {e}")
+        log_and_print(f"错误: 读取文件时出错: {e}", level='error')
         return False
     
     # 写入输出文件
@@ -277,19 +333,19 @@ def process_list_file(input_file, output_file):
             for rule in all_rules:
                 f.write(rule + '\n')
         
-        print(f"\n✓ 成功生成: {output_file}")
-        print(f"  - 展开了 {rule_set_count} 个 RULE-SET")
-        print(f"  - 总共 {total} 条规则")
+        log_and_print(f"\n✓ 成功生成: {output_file}")
+        log_and_print(f"  - 展开了 {rule_set_count} 个 RULE-SET")
+        log_and_print(f"  - 总共 {total} 条规则")
         
         # 打印规则类型统计
-        print(f"  - 规则类型统计:")
+        log_and_print(f"  - 规则类型统计:")
         for rule_type, count in sorted(stats.items()):
-            print(f"    * {rule_type}: {count}")
+            log_and_print(f"    * {rule_type}: {count}")
         
         return True
     
     except Exception as e:
-        print(f"错误: 写入输出文件时出错: {e}")
+        log_and_print(f"错误: 写入输出文件时出错: {e}", level='error')
         return False
 
 
@@ -302,36 +358,41 @@ def main():
     custom_dir = project_root / "custom"
     output_dir = project_root / "output"
     
+    # 设置日志
+    log_file = setup_logging(project_root / "logs")
+    
+    log_and_print("=" * 60)
+    log_and_print("RULE-SET 展开脚本")
+    log_and_print("=" * 60)
+    log_and_print(f"项目目录: {project_root}")
+    log_and_print(f"输入目录: {custom_dir}")
+    log_and_print(f"输出目录: {output_dir}")
+    log_and_print(f"日志文件: {log_file}")
+    log_and_print("=" * 60)
+    
     # 清空 output 目录
     if output_dir.exists():
         import shutil
-        print("正在清空 output 目录...")
+        log_and_print("\n正在清空 output 目录...")
         shutil.rmtree(output_dir)
-        print("✓ output 目录已清空")
+        log_and_print("✓ output 目录已清空")
     
     # 重新创建 output 目录
     output_dir.mkdir(parents=True, exist_ok=True)
     
-    print("=" * 60)
-    print("RULE-SET 展开脚本")
-    print("=" * 60)
-    print(f"输入目录: {custom_dir}")
-    print(f"输出目录: {output_dir}")
-    print("=" * 60)
-    
     # 检查输入目录是否存在
     if not custom_dir.exists():
-        print(f"错误: 输入目录 {custom_dir} 不存在")
+        log_and_print(f"错误: 输入目录 {custom_dir} 不存在", level='error')
         return
     
     # 查找所有 .list 文件
     list_files = sorted(custom_dir.glob("*.list"))
     
     if not list_files:
-        print(f"警告: 在 {custom_dir} 目录下没有找到 .list 文件")
+        log_and_print(f"警告: 在 {custom_dir} 目录下没有找到 .list 文件", level='warning')
         return
     
-    print(f"\n找到 {len(list_files)} 个 .list 文件\n")
+    log_and_print(f"\n找到 {len(list_files)} 个 .list 文件\n")
     
     # 处理每个文件
     success_count = 0
@@ -340,9 +401,10 @@ def main():
         if process_list_file(list_file, output_file):
             success_count += 1
     
-    print("\n" + "=" * 60)
-    print(f"完成! 成功处理 {success_count}/{len(list_files)} 个文件")
-    print("=" * 60)
+    log_and_print("\n" + "=" * 60)
+    log_and_print(f"完成! 成功处理 {success_count}/{len(list_files)} 个文件")
+    log_and_print("=" * 60)
+    log_and_print(f"\n日志已保存到: {log_file}")
 
 
 if __name__ == "__main__":
