@@ -1,0 +1,11 @@
+// 海外的 AI 服务
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/OpenAI/OpenAI.list,no-resolve
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Claude/Claude.list,no-resolve
+DOMAIN-SUFFIX,diabrowser.ai
+DOMAIN-SUFFIX,diabrowser.com
+DOMAIN-SUFFIX,grep.app
+DOMAIN-SUFFIX,grok.com
+DOMAIN-SUFFIX,groq.com
+DOMAIN-SUFFIX,perplexity.ai
+DOMAIN-SUFFIX,perplexity.com
+DOMAIN-SUFFIX,x.ai
