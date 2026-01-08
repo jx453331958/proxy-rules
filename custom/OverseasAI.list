@@ -3,6 +3,7 @@ RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/r
 RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Claude/Claude.list,no-resolve
 DOMAIN-SUFFIX,diabrowser.ai
 DOMAIN-SUFFIX,diabrowser.com
+DOMAIN-KEYWORD,diabrowser
 DOMAIN-SUFFIX,grep.app
 DOMAIN-SUFFIX,grok.com
 DOMAIN-SUFFIX,groq.com
