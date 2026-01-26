@@ -1,11 +1,11 @@
 # Name: Microsoft
-# Updated: 2026-01-25 08:00:06
+# Updated: 2026-01-26 08:00:05
 #
 # Source RULE-SETs:
 #   1. https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Microsoft/Microsoft.list
 #      Downloaded: 673 rules (Source Total: 673)
 #   2. https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/OneDrive/OneDrive.list
-#      Downloaded: 20 rules (Source Total: 20)
+#      Downloaded: 18 rules (Source Total: 18)
 #   3. https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/GitHub/GitHub.list
 #      Downloaded: 31 rules (Source Total: 31)
 #
@@ -13,8 +13,8 @@
 # DOMAIN-KEYWORD: 8
 # DOMAIN-SUFFIX: 706
 # PROCESS-NAME: 4
-# USER-AGENT: 5
-# Total: 724
+# USER-AGENT: 3
+# Total: 722
 
 DOMAIN,vsmarketplacebadge.apphb.com
 DOMAIN-SUFFIX,1drv.ms
@@ -705,8 +705,6 @@ DOMAIN-SUFFIX,storage.msn.com
 DOMAIN-KEYWORD,1drv
 DOMAIN-KEYWORD,onedrive
 DOMAIN-KEYWORD,skydrive
-USER-AGENT,OneDrive*
-USER-AGENT,OneDriveiOSApp*
 PROCESS-NAME,OneDrive
 PROCESS-NAME,OneDriveUpdater
 DOMAIN-SUFFIX,atom.io
