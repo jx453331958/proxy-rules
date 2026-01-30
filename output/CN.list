@@ -1,13 +1,13 @@
 # Name: CN
-# Updated: 2026-01-29 08:00:03
+# Updated: 2026-01-30 08:00:04
 #
 # Source RULE-SETs:
 #   1. https://ruleset.skk.moe/List/ip/china_ip.conf
-#      Downloaded: 3834 rules
+#      Downloaded: 3833 rules
 #   2. https://ruleset.skk.moe/List/ip/domestic.conf
 #      Downloaded: 3 rules
 #   3. https://ruleset.skk.moe/List/non_ip/domestic.conf
-#      Downloaded: 838 rules
+#      Downloaded: 859 rules
 #   4. https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/China/China_All.list
 #      Downloaded: 3759 rules (Source Total: 3759)
 #   5. https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/SteamCN/SteamCN.list
@@ -15,13 +15,13 @@
 #
 # DOMAIN: 56
 # DOMAIN-KEYWORD: 9
-# DOMAIN-SUFFIX: 4496
-# IP-CIDR: 3852
+# DOMAIN-SUFFIX: 4517
+# IP-CIDR: 3851
 # IP-CIDR6: 4
 # USER-AGENT: 34
 # GEOIP: 1
 # DOMAIN-WILDCARD: 1
-# Total: 8453
+# Total: 8473
 
 DOMAIN-SUFFIX,wise.com
 DOMAIN,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe
@@ -1772,10 +1772,9 @@ IP-CIDR,116.68.176.0/21,no-resolve
 IP-CIDR,116.70.64.0/18,no-resolve
 IP-CIDR,116.76.0.0/15,no-resolve
 IP-CIDR,116.78.0.0/16,no-resolve
-IP-CIDR,116.85.1.0/24,no-resolve
-IP-CIDR,116.85.2.0/23,no-resolve
+IP-CIDR,116.85.0.0/22,no-resolve
 IP-CIDR,116.85.13.0/24,no-resolve
-IP-CIDR,116.85.14.0/24,no-resolve
+IP-CIDR,116.85.14.0/23,no-resolve
 IP-CIDR,116.85.16.0/23,no-resolve
 IP-CIDR,116.85.64.0/20,no-resolve
 IP-CIDR,116.85.240.0/20,no-resolve
@@ -3869,6 +3868,7 @@ DOMAIN-SUFFIX,chunyu.mobi
 DOMAIN-SUFFIX,haowu.link
 DOMAIN-SUFFIX,yqkk.link
 DOMAIN-SUFFIX,gorouter.info
+DOMAIN-SUFFIX,cnb.cool
 DOMAIN-SUFFIX,landian.vip
 DOMAIN,dot.pub
 DOMAIN,doh.pub
@@ -3902,6 +3902,7 @@ DOMAIN-SUFFIX,dizzylab.net
 DOMAIN-SUFFIX,biligame.net
 DOMAIN-SUFFIX,smtcdns.net
 DOMAIN-SUFFIX,oschina.net
+DOMAIN-SUFFIX,oneplus.net
 DOMAIN-SUFFIX,meituan.net
 DOMAIN-SUFFIX,biliapi.net
 DOMAIN-SUFFIX,baixing.net
@@ -3945,6 +3946,7 @@ DOMAIN-SUFFIX,qy.net
 DOMAIN-SUFFIX,39.net
 DOMAIN-SUFFIX,kingsoft-office-service.com
 DOMAIN-SUFFIX,alibabausercontent.com
+DOMAIN-SUFFIX,luckincoffeecdn.com
 DOMAIN-SUFFIX,anticheatexpert.com
 DOMAIN-SUFFIX,alibabachengdun.com
 DOMAIN-SUFFIX,samsungcloudcn.com
@@ -4069,9 +4071,11 @@ DOMAIN-SUFFIX,freshhema.com
 DOMAIN-SUFFIX,feishupkg.com
 DOMAIN-SUFFIX,feishucdn.com
 DOMAIN-SUFFIX,eastmoney.com
+DOMAIN-SUFFIX,duokanbox.com
 DOMAIN-SUFFIX,douyuscdn.com
 DOMAIN-SUFFIX,douyinvod.com
 DOMAIN-SUFFIX,douyinpic.com
+DOMAIN-SUFFIX,douyinpay.com
 DOMAIN-SUFFIX,douyincdn.com
 DOMAIN-SUFFIX,dongchedi.com
 DOMAIN-SUFFIX,didialift.com
@@ -4122,6 +4126,7 @@ DOMAIN-SUFFIX,myalicdn.com
 DOMAIN-SUFFIX,msstatic.com
 DOMAIN-SUFFIX,miyoushe.com
 DOMAIN-SUFFIX,luojilab.com
+DOMAIN-SUFFIX,lkcoffee.com
 DOMAIN-SUFFIX,lenovomm.com
 DOMAIN,www.layuicdn.com
 DOMAIN-SUFFIX,kuaishou.com
@@ -4211,7 +4216,9 @@ DOMAIN-SUFFIX,igamecj.com
 DOMAIN-SUFFIX,idqqimg.com
 DOMAIN-SUFFIX,ialicdn.com
 DOMAIN-SUFFIX,huoshan.com
+DOMAIN-SUFFIX,huanqiu.com
 DOMAIN-SUFFIX,hongxiu.com
+DOMAIN-SUFFIX,hisense.com
 DOMAIN-SUFFIX,hihonor.com
 DOMAIN-SUFFIX,hicloud.com
 DOMAIN-SUFFIX,hichina.com
@@ -4227,6 +4234,8 @@ DOMAIN-SUFFIX,dida365.com
 DOMAIN-SUFFIX,dcarvod.com
 DOMAIN-SUFFIX,dcarimg.com
 DOMAIN-SUFFIX,dcarapi.com
+DOMAIN-SUFFIX,d-ctrip.com
+DOMAIN-SUFFIX,cqcbank.com
 DOMAIN-SUFFIX,coolapk.com
 DOMAIN-SUFFIX,coloros.com
 DOMAIN-SUFFIX,cnblogs.com
@@ -4274,6 +4283,7 @@ DOMAIN-SUFFIX,wpscdn.com
 DOMAIN-SUFFIX,weiyun.com
 DOMAIN-SUFFIX,weixin.com
 DOMAIN-SUFFIX,wegame.com
+DOMAIN-SUFFIX,webank.com
 DOMAIN-SUFFIX,wangsu.com
 DOMAIN-SUFFIX,volces.com
 DOMAIN-SUFFIX,udache.com
@@ -4310,6 +4320,7 @@ DOMAIN-SUFFIX,ngabbs.com
 DOMAIN-SUFFIX,myoppo.com
 DOMAIN-SUFFIX,mobike.com
 DOMAIN-SUFFIX,mmstat.com
+DOMAIN-SUFFIX,miwifi.com
 DOMAIN-SUFFIX,mihoyo.com
 DOMAIN-SUFFIX,mihayo.com
 DOMAIN-SUFFIX,mi-img.com
@@ -4403,8 +4414,10 @@ DOMAIN-SUFFIX,pipix.com
 DOMAIN-SUFFIX,nubia.com
 DOMAIN-SUFFIX,nlark.com
 DOMAIN-SUFFIX,mzres.com
+DOMAIN-SUFFIX,myssl.com
 DOMAIN-SUFFIX,myapp.com
 DOMAIN-SUFFIX,mtyun.com
+DOMAIN-SUFFIX,mipay.com
 DOMAIN-SUFFIX,meizu.com
 DOMAIN-SUFFIX,meitu.com
 DOMAIN-SUFFIX,m1905.com
@@ -4499,10 +4512,12 @@ DOMAIN-SUFFIX,21cn.com
 DOMAIN-SUFFIX,1905.com
 DOMAIN-SUFFIX,1688.com
 DOMAIN-SUFFIX,zui.com
+DOMAIN-SUFFIX,zol.com
 DOMAIN-SUFFIX,ys7.com
 DOMAIN-SUFFIX,vip.com
 DOMAIN-SUFFIX,qcc.com
 DOMAIN-SUFFIX,okr.com
+DOMAIN-SUFFIX,niu.com
 DOMAIN-SUFFIX,ku6.com
 DOMAIN-SUFFIX,id6.com
 DOMAIN-SUFFIX,ccb.com
@@ -4542,10 +4557,13 @@ DOMAIN-SUFFIX,coding.me
 DOMAIN-SUFFIX,qbox.me
 DOMAIN-SUFFIX,id6.me
 DOMAIN-SUFFIX,ele.me
+DOMAIN-SUFFIX,tool.lu
+DOMAIN-SUFFIX,dns.la
 DOMAIN-SUFFIX,openinstall.io
 DOMAIN-SUFFIX,air-matters.io
 DOMAIN-SUFFIX,daocloud.io
 DOMAIN-SUFFIX,jianshu.io
+DOMAIN-SUFFIX,dcloud.io
 DOMAIN-SUFFIX,gitee.io
 DOMAIN-SUFFIX,netease.im
 DOMAIN-SUFFIX,jd.hk
@@ -4560,6 +4578,7 @@ DOMAIN-SUFFIX,chinaunicom.cn
 DOMAIN-SUFFIX,baishancdnx.cn
 DOMAIN-SUFFIX,toutiaoimg.cn
 DOMAIN-SUFFIX,sharepoint.cn
+DOMAIN-SUFFIX,huanqiucdn.cn
 DOMAIN-SUFFIX,tencentcs.cn
 DOMAIN-SUFFIX,speedtest.cn
 DOMAIN-SUFFIX,robloxdev.cn
@@ -4627,6 +4646,7 @@ DOMAIN-SUFFIX,weibo.cn
 DOMAIN-SUFFIX,udesk.cn
 DOMAIN-SUFFIX,uczzd.cn
 DOMAIN-SUFFIX,tbcdn.cn
+DOMAIN-SUFFIX,quark.cn
 DOMAIN-SUFFIX,qlogo.cn
 DOMAIN-SUFFIX,qiyou.cn
 DOMAIN-SUFFIX,nubia.cn
