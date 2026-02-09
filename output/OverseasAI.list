@@ -1,5 +1,5 @@
 # Name: OverseasAI
-# Updated: 2026-02-09 08:00:05
+# Updated: 2026-02-09 12:15:14
 #
 # Source RULE-SETs:
 #   1. https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/OpenAI/OpenAI.list
@@ -8,11 +8,11 @@
 #      Downloaded: 3 rules (Source Total: 3)
 #
 # DOMAIN: 8
-# DOMAIN-KEYWORD: 2
+# DOMAIN-KEYWORD: 3
 # DOMAIN-SUFFIX: 34
 # IP-CIDR: 2
 # IP-ASN: 1
-# Total: 47
+# Total: 48
 
 DOMAIN,browser-intake-datadoghq.com
 DOMAIN,chat.openai.com.cdn.cloudflare.net
@@ -55,6 +55,7 @@ DOMAIN-SUFFIX,claude.ai
 DOMAIN-SUFFIX,diabrowser.ai
 DOMAIN-SUFFIX,diabrowser.com
 DOMAIN-KEYWORD,diabrowser
+DOMAIN-KEYWORD,claude
 DOMAIN-SUFFIX,grep.app
 DOMAIN-SUFFIX,grok.com
 DOMAIN-SUFFIX,groq.com

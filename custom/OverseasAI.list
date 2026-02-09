@@ -4,6 +4,7 @@ RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/r
 DOMAIN-SUFFIX,diabrowser.ai
 DOMAIN-SUFFIX,diabrowser.com
 DOMAIN-KEYWORD,diabrowser
+DOMAIN-KEYWORD,claude
 DOMAIN-SUFFIX,grep.app
 DOMAIN-SUFFIX,grok.com
 DOMAIN-SUFFIX,groq.com
