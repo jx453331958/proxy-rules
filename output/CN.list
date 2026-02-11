@@ -1,9 +1,9 @@
 # Name: CN
-# Updated: 2026-02-11 08:00:03
+# Updated: 2026-02-11 22:33:11
 #
 # Source RULE-SETs:
 #   1. https://ruleset.skk.moe/List/ip/china_ip.conf
-#      Downloaded: 3861 rules
+#      Downloaded: 3862 rules
 #   2. https://ruleset.skk.moe/List/ip/domestic.conf
 #      Downloaded: 3 rules
 #   3. https://ruleset.skk.moe/List/non_ip/domestic.conf
@@ -16,12 +16,12 @@
 # DOMAIN: 56
 # DOMAIN-KEYWORD: 9
 # DOMAIN-SUFFIX: 4519
-# IP-CIDR: 3879
+# IP-CIDR: 3880
 # IP-CIDR6: 4
 # USER-AGENT: 34
 # GEOIP: 1
 # DOMAIN-WILDCARD: 1
-# Total: 8503
+# Total: 8504
 
 DOMAIN-SUFFIX,wise.com
 DOMAIN,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe
@@ -3749,6 +3749,7 @@ IP-CIDR,221.12.128.0/18,no-resolve
 IP-CIDR,221.13.0.0/16,no-resolve
 IP-CIDR,221.14.0.0/15,no-resolve
 IP-CIDR,221.122.0.0/16,no-resolve
+IP-CIDR,221.123.0.0/24,no-resolve
 IP-CIDR,221.123.112.0/20,no-resolve
 IP-CIDR,221.123.128.0/17,no-resolve
 IP-CIDR,221.129.0.0/16,no-resolve
