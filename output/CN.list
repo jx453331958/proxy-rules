@@ -1,9 +1,9 @@
 # Name: CN
-# Updated: 2026-03-18 06:00:03
+# Updated: 2026-03-19 06:00:03
 #
 # Source RULE-SETs:
 #   1. https://ruleset.skk.moe/List/ip/china_ip.conf
-#      Downloaded: 3918 rules
+#      Downloaded: 3920 rules
 #   2. https://ruleset.skk.moe/List/ip/domestic.conf
 #      Downloaded: 3 rules
 #   3. https://ruleset.skk.moe/List/non_ip/domestic.conf
@@ -16,12 +16,12 @@
 # DOMAIN: 56
 # DOMAIN-KEYWORD: 9
 # DOMAIN-SUFFIX: 4520
-# IP-CIDR: 3936
+# IP-CIDR: 3938
 # IP-CIDR6: 4
 # USER-AGENT: 34
 # GEOIP: 1
 # DOMAIN-WILDCARD: 1
-# Total: 8561
+# Total: 8563
 
 DOMAIN-SUFFIX,wise.com
 DOMAIN,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe
@@ -89,7 +89,6 @@ IP-CIDR,14.204.0.0/15,no-resolve
 IP-CIDR,14.208.0.0/12,no-resolve
 IP-CIDR,14.238.34.0/24,no-resolve
 IP-CIDR,14.238.128.0/20,no-resolve
-IP-CIDR,14.241.232.0/21,no-resolve
 IP-CIDR,14.255.16.0/24,no-resolve
 IP-CIDR,14.255.238.0/24,no-resolve
 IP-CIDR,14.255.254.0/24,no-resolve
@@ -2389,7 +2388,7 @@ IP-CIDR,123.60.0.0/16,no-resolve
 IP-CIDR,123.64.0.0/15,no-resolve
 IP-CIDR,123.66.0.0/16,no-resolve
 IP-CIDR,123.77.0.0/16,no-resolve
-IP-CIDR,123.88.0.0/16,no-resolve
+IP-CIDR,123.88.0.0/15,no-resolve
 IP-CIDR,123.96.0.0/15,no-resolve
 IP-CIDR,123.99.192.0/18,no-resolve
 IP-CIDR,123.101.0.0/16,no-resolve
@@ -2910,7 +2909,6 @@ IP-CIDR,202.1.112.0/23,no-resolve
 IP-CIDR,202.4.128.0/19,no-resolve
 IP-CIDR,202.4.252.0/22,no-resolve
 IP-CIDR,202.6.202.0/23,no-resolve
-IP-CIDR,202.13.71.0/24,no-resolve
 IP-CIDR,202.14.235.0/24,no-resolve
 IP-CIDR,202.14.236.0/23,no-resolve
 IP-CIDR,202.14.238.0/24,no-resolve
@@ -3533,7 +3531,11 @@ IP-CIDR,211.156.220.0/23,no-resolve
 IP-CIDR,211.156.223.0/24,no-resolve
 IP-CIDR,211.157.0.0/19,no-resolve
 IP-CIDR,211.157.96.0/19,no-resolve
-IP-CIDR,211.157.128.0/17,no-resolve
+IP-CIDR,211.157.128.0/18,no-resolve
+IP-CIDR,211.157.192.0/20,no-resolve
+IP-CIDR,211.157.219.0/24,no-resolve
+IP-CIDR,211.157.222.0/24,no-resolve
+IP-CIDR,211.157.224.0/19,no-resolve
 IP-CIDR,211.158.0.0/16,no-resolve
 IP-CIDR,211.159.64.0/21,no-resolve
 IP-CIDR,211.159.128.0/17,no-resolve
@@ -3857,7 +3859,7 @@ IP-CIDR,222.126.236.0/23,no-resolve
 IP-CIDR,222.126.240.0/20,no-resolve
 IP-CIDR,222.128.0.0/12,no-resolve
 IP-CIDR,222.160.0.0/14,no-resolve
-IP-CIDR,222.166.32.0/19,no-resolve
+IP-CIDR,222.166.0.0/18,no-resolve
 IP-CIDR,222.168.0.0/13,no-resolve
 IP-CIDR,222.176.0.0/12,no-resolve
 IP-CIDR,222.192.0.0/11,no-resolve
