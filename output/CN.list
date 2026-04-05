@@ -1,9 +1,9 @@
 # Name: CN
-# Updated: 2026-04-05 06:00:03
+# Updated: 2026-04-06 06:00:03
 #
 # Source RULE-SETs:
 #   1. https://ruleset.skk.moe/List/ip/china_ip.conf
-#      Downloaded: 3929 rules
+#      Downloaded: 3926 rules
 #   2. https://ruleset.skk.moe/List/ip/domestic.conf
 #      Downloaded: 3 rules
 #   3. https://ruleset.skk.moe/List/non_ip/domestic.conf
@@ -16,12 +16,12 @@
 # DOMAIN: 56
 # DOMAIN-KEYWORD: 9
 # DOMAIN-SUFFIX: 4520
-# IP-CIDR: 3947
+# IP-CIDR: 3944
 # IP-CIDR6: 4
 # USER-AGENT: 34
 # GEOIP: 1
 # DOMAIN-WILDCARD: 1
-# Total: 8572
+# Total: 8569
 
 DOMAIN-SUFFIX,wise.com
 DOMAIN,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe
@@ -867,13 +867,11 @@ IP-CIDR,103.26.76.0/22,no-resolve
 IP-CIDR,103.27.24.0/22,no-resolve
 IP-CIDR,103.27.240.0/22,no-resolve
 IP-CIDR,103.28.8.0/24,no-resolve
-IP-CIDR,103.28.147.0/24,no-resolve
 IP-CIDR,103.28.204.0/22,no-resolve
 IP-CIDR,103.28.212.0/22,no-resolve
 IP-CIDR,103.29.16.0/22,no-resolve
 IP-CIDR,103.29.24.0/23,no-resolve
 IP-CIDR,103.29.136.0/22,no-resolve
-IP-CIDR,103.30.51.0/24,no-resolve
 IP-CIDR,103.30.148.0/24,no-resolve
 IP-CIDR,103.30.151.0/24,no-resolve
 IP-CIDR,103.31.200.0/22,no-resolve
@@ -2893,7 +2891,6 @@ IP-CIDR,192.140.160.0/19,no-resolve
 IP-CIDR,192.140.208.0/21,no-resolve
 IP-CIDR,192.144.128.0/17,no-resolve
 IP-CIDR,192.163.11.0/24,no-resolve
-IP-CIDR,192.193.73.0/24,no-resolve
 IP-CIDR,192.232.97.0/24,no-resolve
 IP-CIDR,193.9.44.0/24,no-resolve
 IP-CIDR,193.9.46.0/24,no-resolve
