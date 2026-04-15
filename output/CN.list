@@ -1,9 +1,9 @@
 # Name: CN
-# Updated: 2026-04-15 06:00:03
+# Updated: 2026-04-16 06:00:04
 #
 # Source RULE-SETs:
 #   1. https://ruleset.skk.moe/List/ip/china_ip.conf
-#      Downloaded: 3918 rules
+#      Downloaded: 3919 rules
 #   2. https://ruleset.skk.moe/List/ip/domestic.conf
 #      Downloaded: 3 rules
 #   3. https://ruleset.skk.moe/List/non_ip/domestic.conf
@@ -16,12 +16,12 @@
 # DOMAIN: 56
 # DOMAIN-KEYWORD: 9
 # DOMAIN-SUFFIX: 4519
-# IP-CIDR: 3936
+# IP-CIDR: 3937
 # IP-CIDR6: 4
 # USER-AGENT: 34
 # GEOIP: 1
 # DOMAIN-WILDCARD: 1
-# Total: 8560
+# Total: 8561
 
 DOMAIN-SUFFIX,wise.com
 DOMAIN,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe
@@ -315,6 +315,7 @@ IP-CIDR,43.243.232.0/22,no-resolve
 IP-CIDR,43.243.244.0/22,no-resolve
 IP-CIDR,43.247.4.0/24,no-resolve
 IP-CIDR,43.247.68.0/22,no-resolve
+IP-CIDR,43.247.84.0/22,no-resolve
 IP-CIDR,43.247.88.0/22,no-resolve
 IP-CIDR,43.247.100.0/22,no-resolve
 IP-CIDR,43.247.176.0/20,no-resolve
@@ -1247,7 +1248,7 @@ IP-CIDR,103.215.44.0/24,no-resolve
 IP-CIDR,103.215.140.0/22,no-resolve
 IP-CIDR,103.216.136.0/22,no-resolve
 IP-CIDR,103.216.152.0/22,no-resolve
-IP-CIDR,103.216.252.0/23,no-resolve
+IP-CIDR,103.216.252.0/24,no-resolve
 IP-CIDR,103.217.184.0/21,no-resolve
 IP-CIDR,103.217.192.0/20,no-resolve
 IP-CIDR,103.218.216.0/22,no-resolve
@@ -1255,7 +1256,7 @@ IP-CIDR,103.219.28.0/22,no-resolve
 IP-CIDR,103.219.32.0/21,no-resolve
 IP-CIDR,103.219.85.0/24,no-resolve
 IP-CIDR,103.219.86.0/23,no-resolve
-IP-CIDR,103.219.100.0/22,no-resolve
+IP-CIDR,103.219.100.0/23,no-resolve
 IP-CIDR,103.219.184.0/22,no-resolve
 IP-CIDR,103.220.52.0/22,no-resolve
 IP-CIDR,103.220.56.0/22,no-resolve
@@ -1285,6 +1286,7 @@ IP-CIDR,103.228.208.0/22,no-resolve
 IP-CIDR,103.228.228.0/23,no-resolve
 IP-CIDR,103.228.230.0/24,no-resolve
 IP-CIDR,103.229.148.0/22,no-resolve
+IP-CIDR,103.229.172.0/22,no-resolve
 IP-CIDR,103.229.212.0/22,no-resolve
 IP-CIDR,103.230.110.0/23,no-resolve
 IP-CIDR,103.230.200.0/22,no-resolve
@@ -1938,6 +1940,7 @@ IP-CIDR,117.124.232.0/22,no-resolve
 IP-CIDR,117.124.236.0/23,no-resolve
 IP-CIDR,117.124.240.0/22,no-resolve
 IP-CIDR,117.124.244.0/24,no-resolve
+IP-CIDR,117.124.246.0/24,no-resolve
 IP-CIDR,117.126.0.0/16,no-resolve
 IP-CIDR,117.128.0.0/10,no-resolve
 IP-CIDR,118.24.0.0/15,no-resolve
@@ -2553,7 +2556,6 @@ IP-CIDR,139.170.0.0/16,no-resolve
 IP-CIDR,139.186.0.0/16,no-resolve
 IP-CIDR,139.189.0.0/16,no-resolve
 IP-CIDR,139.196.0.0/16,no-resolve
-IP-CIDR,139.198.255.0/24,no-resolve
 IP-CIDR,139.199.0.0/16,no-resolve
 IP-CIDR,139.200.0.0/13,no-resolve
 IP-CIDR,139.208.0.0/13,no-resolve
@@ -2731,7 +2733,6 @@ IP-CIDR,168.160.158.0/23,no-resolve
 IP-CIDR,168.160.160.0/21,no-resolve
 IP-CIDR,168.160.168.0/24,no-resolve
 IP-CIDR,168.160.224.0/19,no-resolve
-IP-CIDR,168.235.241.0/24,no-resolve
 IP-CIDR,171.8.0.0/13,no-resolve
 IP-CIDR,171.34.0.0/15,no-resolve
 IP-CIDR,171.36.0.0/14,no-resolve
