@@ -1,27 +1,27 @@
 # Name: CN
-# Updated: 2026-05-09 06:00:03
+# Updated: 2026-05-10 06:00:03
 #
 # Source RULE-SETs:
 #   1. https://ruleset.skk.moe/List/ip/china_ip.conf
-#      Downloaded: 3915 rules
+#      Downloaded: 3927 rules
 #   2. https://ruleset.skk.moe/List/ip/domestic.conf
 #      Downloaded: 3 rules
 #   3. https://ruleset.skk.moe/List/non_ip/domestic.conf
 #      Downloaded: 862 rules
 #   4. https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/China/China_All.list
-#      Downloaded: 3758 rules (Source Total: 3758)
+#      Downloaded: 3754 rules (Source Total: 3754)
 #   5. https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/SteamCN/SteamCN.list
 #      Downloaded: 17 rules (Source Total: 17)
 #
-# DOMAIN: 56
+# DOMAIN: 53
 # DOMAIN-KEYWORD: 9
-# DOMAIN-SUFFIX: 4519
-# IP-CIDR: 3933
+# DOMAIN-SUFFIX: 4518
+# IP-CIDR: 3945
 # IP-CIDR6: 4
 # USER-AGENT: 34
 # GEOIP: 1
 # DOMAIN-WILDCARD: 1
-# Total: 8557
+# Total: 8565
 
 DOMAIN-SUFFIX,wise.com
 DOMAIN,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe
@@ -960,7 +960,8 @@ IP-CIDR,103.57.136.0/23,no-resolve
 IP-CIDR,103.57.139.0/24,no-resolve
 IP-CIDR,103.59.112.0/22,no-resolve
 IP-CIDR,103.59.124.0/22,no-resolve
-IP-CIDR,103.59.148.0/22,no-resolve
+IP-CIDR,103.59.148.0/23,no-resolve
+IP-CIDR,103.59.151.0/24,no-resolve
 IP-CIDR,103.59.168.0/23,no-resolve
 IP-CIDR,103.60.32.0/22,no-resolve
 IP-CIDR,103.60.164.0/22,no-resolve
@@ -2554,6 +2555,7 @@ IP-CIDR,139.170.0.0/16,no-resolve
 IP-CIDR,139.186.0.0/16,no-resolve
 IP-CIDR,139.189.0.0/16,no-resolve
 IP-CIDR,139.196.0.0/16,no-resolve
+IP-CIDR,139.198.255.0/24,no-resolve
 IP-CIDR,139.199.0.0/16,no-resolve
 IP-CIDR,139.200.0.0/13,no-resolve
 IP-CIDR,139.208.0.0/13,no-resolve
@@ -2649,6 +2651,11 @@ IP-CIDR,153.118.0.0/15,no-resolve
 IP-CIDR,154.8.48.0/20,no-resolve
 IP-CIDR,154.8.128.0/17,no-resolve
 IP-CIDR,154.89.32.0/20,no-resolve
+IP-CIDR,154.89.49.0/24,no-resolve
+IP-CIDR,154.89.50.0/23,no-resolve
+IP-CIDR,154.89.52.0/23,no-resolve
+IP-CIDR,154.89.54.0/24,no-resolve
+IP-CIDR,154.89.56.0/21,no-resolve
 IP-CIDR,154.197.128.0/17,no-resolve
 IP-CIDR,155.126.176.0/23,no-resolve
 IP-CIDR,156.107.160.0/23,no-resolve
@@ -2746,6 +2753,9 @@ IP-CIDR,175.0.0.0/12,no-resolve
 IP-CIDR,175.16.0.0/13,no-resolve
 IP-CIDR,175.24.0.0/15,no-resolve
 IP-CIDR,175.27.0.0/16,no-resolve
+IP-CIDR,175.29.107.0/24,no-resolve
+IP-CIDR,175.29.108.0/24,no-resolve
+IP-CIDR,175.29.111.0/24,no-resolve
 IP-CIDR,175.30.0.0/15,no-resolve
 IP-CIDR,175.42.0.0/15,no-resolve
 IP-CIDR,175.44.0.0/16,no-resolve
@@ -3611,7 +3621,9 @@ IP-CIDR,218.98.104.0/22,no-resolve
 IP-CIDR,218.98.108.0/23,no-resolve
 IP-CIDR,218.98.111.0/24,no-resolve
 IP-CIDR,218.98.160.0/24,no-resolve
-IP-CIDR,218.98.176.0/21,no-resolve
+IP-CIDR,218.98.176.0/22,no-resolve
+IP-CIDR,218.98.180.0/23,no-resolve
+IP-CIDR,218.98.182.0/24,no-resolve
 IP-CIDR,218.98.192.0/24,no-resolve
 IP-CIDR,218.104.0.0/15,no-resolve
 IP-CIDR,218.106.0.0/16,no-resolve
@@ -4807,7 +4819,6 @@ USER-AGENT,TeslaMap
 DOMAIN,analytics.strava.com
 DOMAIN,blzddist1-a.akamaihd.net
 DOMAIN,cdn.angruo.com
-DOMAIN,cdn.lilyemby.com
 DOMAIN,client.amplifi.com
 DOMAIN,download.jetbrains.com
 DOMAIN,download.microsoft.com
@@ -4817,10 +4828,8 @@ DOMAIN,kc.kexinshe.com
 DOMAIN,ntservicepack.microsoft.com
 DOMAIN,origin-a.akamaihd.ne
 DOMAIN,origin-a.akamaihd.net
-DOMAIN,smart.uhdnow.com
 DOMAIN,sms.imagetasks.com
 DOMAIN,steamcommunity-a.akamaihd.net
-DOMAIN,tx.lilyemby.com
 DOMAIN,weixin.com
 DOMAIN,www.libvideo.com
 DOMAIN,www.yxssp.com
@@ -6749,7 +6758,6 @@ DOMAIN-SUFFIX,jiayuan.com
 DOMAIN-SUFFIX,jiazhao.com
 DOMAIN-SUFFIX,jibencaozuo.com
 DOMAIN-SUFFIX,jidian.im
-DOMAIN-SUFFIX,jiedaibao.gs
 DOMAIN-SUFFIX,jiemeng8.com
 DOMAIN-SUFFIX,jiemian.com
 DOMAIN-SUFFIX,jikeiot.cloud
