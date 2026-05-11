@@ -1,22 +1,22 @@
 # Name: Google
-# Updated: 2026-05-11 06:00:04
+# Updated: 2026-05-12 06:00:05
 #
 # Source RULE-SETs:
 #   1. https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Gemini/Gemini.list
 #      Downloaded: 13 rules (Source Total: 13)
 #   2. https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Google/Google.list
-#      Downloaded: 710 rules (Source Total: 710)
+#      Downloaded: 703 rules (Source Total: 703)
 #   3. https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/YouTube/YouTube.list
 #      Downloaded: 190 rules (Source Total: 190)
 #
 # DOMAIN: 4
 # DOMAIN-KEYWORD: 9
-# DOMAIN-SUFFIX: 877
+# DOMAIN-SUFFIX: 870
 # IP-CIDR: 6
 # IP-CIDR6: 2
 # PROCESS-NAME: 5
 # USER-AGENT: 10
-# Total: 913
+# Total: 906
 
 DOMAIN,ai.google.dev
 DOMAIN,alkalimakersuite-pa.clients6.google.com
@@ -229,7 +229,6 @@ DOMAIN-SUFFIX,digitalattackmap.com
 DOMAIN-SUFFIX,doubleclick-cn.net
 DOMAIN-SUFFIX,doubleclick.com
 DOMAIN-SUFFIX,doubleclick.net
-DOMAIN-SUFFIX,download.qatp1.net
 DOMAIN-SUFFIX,episodic.com
 DOMAIN-SUFFIX,fastlane.ci
 DOMAIN-SUFFIX,fastlane.tools
@@ -576,7 +575,6 @@ DOMAIN-SUFFIX,mdialog.com
 DOMAIN-SUFFIX,meet.new
 DOMAIN-SUFFIX,mfg-inspector.com
 DOMAIN-SUFFIX,mobileview.page
-DOMAIN-SUFFIX,monitoring.qpdp1.net
 DOMAIN-SUFFIX,moodstocks.com
 DOMAIN-SUFFIX,near.by
 DOMAIN-SUFFIX,nest.com
@@ -620,12 +618,8 @@ DOMAIN-SUFFIX,prod.databe.floonet.goog
 DOMAIN-SUFFIX,projectara.com
 DOMAIN-SUFFIX,projectbaseline.com
 DOMAIN-SUFFIX,publishproxy.com
-DOMAIN-SUFFIX,qagpublic.qatp1.net
-DOMAIN-SUFFIX,qgadmin.qcpp1.net
 DOMAIN-SUFFIX,qiao-cn.com
 DOMAIN-SUFFIX,qpx.googleflights.net
-DOMAIN-SUFFIX,qualysapi.qatp1.net
-DOMAIN-SUFFIX,qualysguard.qpdp1.net
 DOMAIN-SUFFIX,questvisual.com
 DOMAIN-SUFFIX,quickoffice.com
 DOMAIN-SUFFIX,quiksee.com
@@ -642,7 +636,6 @@ DOMAIN-SUFFIX,ridepenguin.com
 DOMAIN-SUFFIX,run.app
 DOMAIN-SUFFIX,savethedate.foo
 DOMAIN-SUFFIX,saynow.com
-DOMAIN-SUFFIX,scanservice1.qcpp1.net
 DOMAIN-SUFFIX,schema.org
 DOMAIN-SUFFIX,schemer.com
 DOMAIN-SUFFIX,screenwisetrends.com
