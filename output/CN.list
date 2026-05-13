@@ -1,5 +1,5 @@
 # Name: CN
-# Updated: 2026-05-13 06:00:03
+# Updated: 2026-05-14 06:00:03
 #
 # Source RULE-SETs:
 #   1. https://ruleset.skk.moe/List/ip/china_ip.conf
@@ -2997,7 +2997,6 @@ IP-CIDR,202.127.40.0/21,no-resolve
 IP-CIDR,202.127.48.0/23,no-resolve
 IP-CIDR,202.127.144.0/20,no-resolve
 IP-CIDR,202.127.200.0/21,no-resolve
-IP-CIDR,202.127.216.0/21,no-resolve
 IP-CIDR,202.127.224.0/19,no-resolve
 IP-CIDR,202.130.0.0/19,no-resolve
 IP-CIDR,202.130.224.0/20,no-resolve
@@ -3838,6 +3837,7 @@ IP-CIDR,222.64.0.0/11,no-resolve
 IP-CIDR,222.125.0.0/16,no-resolve
 IP-CIDR,222.126.128.0/23,no-resolve
 IP-CIDR,222.126.132.0/23,no-resolve
+IP-CIDR,222.126.134.0/24,no-resolve
 IP-CIDR,222.126.141.0/24,no-resolve
 IP-CIDR,222.126.142.0/23,no-resolve
 IP-CIDR,222.126.146.0/23,no-resolve
