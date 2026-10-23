@@ -1,20 +1,36 @@
 # Name: Claude
-# Updated: 2026-10-21 14:43:30
+# Updated: 2026-10-23 12:43:32
 #
 # Source RULE-SETs:
 #   1. https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Claude/Claude.list
 #      Downloaded: 3 rules (Source Total: 3)
 #
-# DOMAIN: 1
-# DOMAIN-KEYWORD: 2
-# DOMAIN-SUFFIX: 16
-# Total: 19
+# DOMAIN: 2
+# DOMAIN-KEYWORD: 5
+# DOMAIN-SUFFIX: 24
+# IP-CIDR: 2
+# IP-CIDR6: 3
+# GEOIP: 1
+# IP-ASN: 1
+# Total: 38
 
 DOMAIN,cdn.usefathom.com
 DOMAIN-SUFFIX,anthropic.com
 DOMAIN-SUFFIX,claude.ai
 DOMAIN-KEYWORD,claude
 DOMAIN-KEYWORD,browser-intake
+DOMAIN-KEYWORD,datadog
+DOMAIN-KEYWORD,sentry
+DOMAIN-KEYWORD,sift
+DOMAIN-SUFFIX,claude.com
+DOMAIN-SUFFIX,clau.de
+DOMAIN-SUFFIX,claudemcpclient.com
+DOMAIN-SUFFIX,claudeusercontent.com
+DOMAIN,anthropic.auth0.com
+DOMAIN-SUFFIX,anthropic.com.cdn.cloudflare.net
+DOMAIN-SUFFIX,servd-anthropic-website.b-cdn.net
+DOMAIN-SUFFIX,anthropic-com.ghost.io
+DOMAIN-SUFFIX,statsigapi.net
 DOMAIN-SUFFIX,claudemcpcontent.com
 DOMAIN-SUFFIX,sentry.io
 DOMAIN-SUFFIX,datadoghq.com
@@ -29,3 +45,10 @@ DOMAIN-SUFFIX,intercomcdn.com
 DOMAIN-SUFFIX,challenges.cloudflare.com
 DOMAIN-SUFFIX,siftscience.com
 DOMAIN-SUFFIX,segment.io
+IP-CIDR,160.79.104.0/23,no-resolve
+IP-CIDR,160.79.104.0/21,no-resolve
+IP-CIDR6,2607:6bc0::/48,no-resolve
+IP-CIDR6,2607:6bc0:11::/48,no-resolve
+IP-CIDR6,2607:6bc0::/32,no-resolve
+IP-ASN,399358,no-resolve
+GEOIP,ntp,no-resolve
